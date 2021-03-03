@@ -18,7 +18,7 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 
 ### App Walkthrough GIF
 
-<img src="https://media2.giphy.com/media/omUOkX8g1seJ9Q1jU1/giphy.gif" width=250><br>
+<img src="https://media2.giphy.com/media/nX4NjyQipHBlcjpjuR/giphy.gif" width=250><br>
 
 ### Notes
 I had trouble getting each icon in Superhero mode to the needed size. Changing the Collection View "Estimate Size" from Automatic to None fixed this.
