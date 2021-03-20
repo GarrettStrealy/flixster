@@ -1,5 +1,5 @@
 //
-//  MovieDetailsViewController.swift
+//  SuperheroDetailsViewController.swift
 //  flixster
 //
 //  Created by Garrett Strealy on 2/26/21.
@@ -8,18 +8,18 @@
 import UIKit
 import AlamofireImage
 
-class MovieDetailsViewController: UIViewController {
-    
+class SuperheroDetailsViewController: UIViewController {
+
     @IBOutlet weak var backdropView: UIImageView!
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
     
     var movie: [String:Any]!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
         // Set title
         titleLabel.text = movie["title"] as? String
@@ -37,10 +37,16 @@ class MovieDetailsViewController: UIViewController {
         // Set poster image
         posterView.af_setImage(withURL: posterUrl!)
         
-        let backdropPath = movie["backdrop_path"] as! String
-        let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
-        
-        backdropView.af_setImage(withURL: backdropUrl!)
+        // If the backdrop path exists, set background to it
+        if let backdropPath = movie["backdrop_path"] as? String {
+            let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
+            backdropView.af_setImage(withURL: backdropUrl!)
+        }
+        // Else, set the background to a stock image of a movie theater
+        else {
+            let backdropUrl = URL(string: "https://g.foolcdn.com/editorial/images/469296/empty-movie-theater.jpg")
+            backdropView.af_setImage(withURL: backdropUrl!)
+        }
     }
     
 
